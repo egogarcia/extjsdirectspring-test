@@ -22,6 +22,8 @@ Ext.define('MyApp.view.HelloPanel', {
         align: 'center',
         type: 'vbox'
     },
+    itemId: 'HelloPanel',
+    id: 'HelloPanel',
     title: 'Hola',
 
     initComponent: function() {
@@ -32,7 +34,7 @@ Ext.define('MyApp.view.HelloPanel', {
                 {
                     xtype: 'textfield',
                     itemId: 'NameTextField',
-                    fieldLabel: 'Nombre'
+                    fieldLabel: 'Introduce tu nombre'
                 },
                 {
                     xtype: 'button',

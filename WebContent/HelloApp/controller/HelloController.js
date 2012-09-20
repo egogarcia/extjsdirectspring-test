@@ -12,28 +12,30 @@
  *
  * Do NOT hand edit this file.
  */
-Ext.direct.Manager.addProvider(Ext.app.REMOTING_API); 
+Ext.direct.Manager.addProvider(Ext.app.REMOTING_API);
 Ext.define('MyApp.controller.HelloController', {
-    extend: 'Ext.app.Controller',
+	extend : 'Ext.app.Controller',
 
-    onHelloButtonClick: function(button, e, options) {
-        console.log("click");
-        
-        var callback = function(result, e) {
-            console.log(result);
-        };
-          
-        testAction.doEcho('ping', callback);
-        
-         
-    },
+	onHelloButtonClick : function(button, e, options) {
+		console.log("click");
 
-    init: function(application) {
-        this.control({
-            "button#HelloButton": {
-                click: this.onHelloButtonClick
-            }
-        });
-    }
+		var window = Ext.getCmp('HelloPanel'), name = window.getComponent(
+				'NameTextField').getValue();
+
+		var callback = function(result, e) {
+			Ext.MessageBox.alert('Server:', result);
+		};
+
+		helloDemoService.doHello(name, callback);
+
+	},
+
+	init : function(application) {
+		this.control({
+			"button#HelloButton" : {
+				click : this.onHelloButtonClick
+			}
+		});
+	}
 
 });
